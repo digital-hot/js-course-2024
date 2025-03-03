@@ -13,6 +13,15 @@ const bookList = {
             `;
             htmlBookList.appendChild(bookDiv);
         });
+    },
+    
+    renderNewBook(books,temple) {
+        let = html = "";
+        const htmlBookList = document.querySelector("#bookList");
+        books.forEach(book => {
+            html += Mustache.render(temple.innerHTML, book);
+        });
+        
+        htmlBookList.innerHTML = html;
     }
-
 }
