@@ -27,28 +27,30 @@
         }
 
         class StudentManagement {
+            #students = [];
+            
             constructor() {
-                this.students = [];
+                this.#students = [];
             }
 
             addStudent(Student) {
-                this.students.push(Student);
+                this.#students.push(Student);
             }
 
             removeStudent(id) {
-                this.students = this.students.filter(student => student.id !== id);
+                this.#students = this.#students.filter(student => student.id !== id);
             }
 
             getStudentById(id) {
-                return this.students.find(student => student.id === id).getStudentInfo();
+                return this.#students.find(student => student.id === id).getStudentInfo();
             }
 
             getStudents() {
-                return this.students;
+                return this.#students;
             }
 
             showAllStudents() {
-                this.students.forEach(student => console.log(student.getStudentInfo()));
+                this.#students.forEach(student => console.log(student.getStudentInfo()));
             }
 
         }
@@ -59,12 +61,13 @@
         sm.addStudent(new Student(3, 'Doe', 22, 85));
 
         sm.showAllStudents();
-        sm.removeStudent(2);
-        console.log('After removing student with ID 2');
+        //sm.removeStudent(2);
+        //console.log('After removing student with ID 2');
         sm.showAllStudents();
         console.log(sm.getStudentById(1));
         console.log(sm.getStudentById(2));
         console.log(sm.getStudents());
+        console.log(sm.students.push(new Student(4, 'Doe', 22, 85)));
     </Script>
 </body>
 
